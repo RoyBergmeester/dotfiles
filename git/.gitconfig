@@ -1,0 +1,7 @@
+[user]
+	email = roy@newaspect.nl
+	name = Roy
+[core]
+	excludesfile = /home/roy/.gitignore
+[init]
+	defaultBranch = main
