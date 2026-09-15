@@ -74,6 +74,15 @@ export PATH="$HOME/.local/bin:$PATH"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+HISTFILE="$HOME/.zsh_history" # Sets the file path where your command history is stored on disk.
+HISTSIZE=1000 # Defines the number of commands kept in memory during a current session.
+SAVEHIST=1000 # Defines the number of commands saved to the history file on disk.
+setopt SHARE_HISTORY # Syncs commands across multiple open terminal windows and sessions instantly.
+setopt HIST_IGNORE_DUPS # Prevents sequential duplicate commands from cluttering your history.setopt HIST_IGNORE_SPACE
+
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+#
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
