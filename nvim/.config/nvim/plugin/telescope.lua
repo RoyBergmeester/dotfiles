@@ -15,12 +15,12 @@ require('telescope').setup({
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>fb', builtin.buffers)
-vim.keymap.set('n', '<leader>ff', builtin.find_files)
-vim.keymap.set('n', '<leader>fg', builtin.live_grep)
-vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>f?', function() builtin.find_files({ find_command = { "rg", "--files", "--sort=path", "--hidden" } }) end, { desc = 'Telescope Hidden Files' })
-vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
+vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'Telescope find symbols' })
 
 -- Edit Neovim configuration
 vim.keymap.set('n', '<leader>en', function() builtin.find_files { cwd = vim.fn.stdpath("config") } end)
