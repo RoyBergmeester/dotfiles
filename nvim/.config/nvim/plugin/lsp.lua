@@ -4,6 +4,20 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 vim.lsp.config('*', { capabilities = capabilities })
 
+-- Lua config
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            runtime = { version = 'LuaJIT' },
+            workspace = {
+                checkThirdParty = false,
+                library = vim.api.nvim_get_runtime_file('', true),
+            },
+        },
+    },
+})
+
+-- PHP config
 vim.lsp.config("intelephense", {
     cmd = { "intelephense", "--stdio" },
     filetypes = { "php" },
