@@ -23,13 +23,20 @@ vim.lsp.config("intelephense", {
     filetypes = { "php" },
     root_markers = { "composer.json", ".git" },
     init_options = {
-        licenceKey = "REDACTED",
+        -- licence key is read from licence.txt in this directory (kept out of version control)
         globalStoragePath = vim.fn.expand("~/intelephense"),
     },
     settings = {
         intelephense = {
             diagnostics = { undefinedFunctions = false },
             files = { maxSize = 5000000 },
+            exclude = {
+                "**/.git/**",
+                "**/node_modules/**",
+                "**/vendor/**/{Tests,tests}/**",
+                "**/vendor/**/vendor/**",
+                "**/var/**",
+            },
             environment = { includePaths = { vim.fn.getcwd() .. "/vendor" }, phpVersion = "8.4.15" },
             stubs = {
                 "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype",
