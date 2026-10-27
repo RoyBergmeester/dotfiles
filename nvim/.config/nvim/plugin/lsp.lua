@@ -29,13 +29,15 @@ vim.lsp.config("intelephense", {
     settings = {
         intelephense = {
             diagnostics = { undefinedFunctions = false },
-            files = { maxSize = 5000000 },
-            exclude = {
-                "**/.git/**",
-                "**/node_modules/**",
-                "**/vendor/**/{Tests,tests}/**",
-                "**/vendor/**/vendor/**",
-                "**/var/**",
+            files = {
+                maxSize = 5000000,
+                exclude = {
+                    "**/.git/**",
+                    "**/node_modules/**",
+                    "**/vendor/**/{Tests,tests}/**",
+                    "**/vendor/**/vendor/**",
+                    "**/var/**",
+                },
             },
             environment = { includePaths = { vim.fn.getcwd() .. "/vendor" }, phpVersion = "8.4.15" },
             stubs = {
